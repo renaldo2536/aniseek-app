@@ -1,4 +1,5 @@
 # AniSeek
+
 AniSeek is a cross-platform application built with Expo that allows users to discover, search, and favorite anime. The app provides a clean and intuitive interface for exploring anime content using the Jikan API.
 
 ## Features
@@ -10,9 +11,7 @@ AniSeek is a cross-platform application built with Expo that allows users to dis
 - **Detail View**: View comprehensive details about each anime
 - **Multi-Platform**: Works on Android, iOS, and Web
 - **Optimized Performance**: Fast loading and smooth scrolling
-- **Responsive Design**: Adapts to different screen sizes
 - **Offline Support**: Access favorites even without internet connection
-- **Animations**: Smooth transitions and interactive elements
 
 ## Technologies Used
 
