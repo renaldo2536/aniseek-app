@@ -9,7 +9,6 @@ AniSeek is a cross-platform application built with Expo that allows users to dis
 - **Filtering**: Filter anime by multiple genres with search functionality
 - **Favorites**: Save and manage favorite anime with persistent storage
 - **Detail View**: View comprehensive details about each anime
-- **Multi-Platform**: Works on Android, iOS, and Web
 - **Optimized Performance**: Fast loading and smooth scrolling
 - **Offline Support**: Access favorites even without internet connection
 
