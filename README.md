@@ -1,50 +1,189 @@
-# Welcome to your Expo app 👋
+# AniSeek - Anime Explorer App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+AniSeek is a cross-platform application built with Expo that allows users to discover, search, and favorite anime. The app provides a clean and intuitive interface for exploring anime content using the Jikan API.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **Anime Discovery**: Browse popular anime with infinite scrolling
+- **Search**: Find anime by title
+- **Filtering**: Filter anime by multiple genres with search functionality
+- **Favorites**: Save and manage favorite anime with persistent storage
+- **Detail View**: View comprehensive details about each anime
+- **Multi-Platform**: Works on Android, iOS, and Web
+- **Optimized Performance**: Fast loading and smooth scrolling
+- **Responsive Design**: Adapts to different screen sizes
+- **Offline Support**: Access favorites even without internet connection
+- **Animations**: Smooth transitions and interactive elements
 
-   ```bash
-   npm install
-   ```
+## Technologies Used
 
-2. Start the app
+- **Expo**: For cross-platform development
+- **Expo Router**: For navigation and deep linking
+- **React Native**: Core framework
+- **TypeScript**: For type safety
+- **Jotai**: For state management
+- **MMKV**: For high-performance local storage
+- **TailwindCSS (NativeWind)**: For styling
+- **React Query**: For data fetching and caching
+- **FlashList**: For virtualized lists with infinite scrolling
+- **Reanimated**: For smooth animations
+- **Bottom Sheet**: For modal interfaces
 
-   ```bash
-   npx expo start
-   ```
+## Installation
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+1. Clone the repository:
 
 ```bash
-npm run reset-project
+git clone https://github.com/yourusername/aniseek-app.git
+cd aniseek-app
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Install dependencies:
 
-## Learn more
+```bash
+yarn install
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+3. Start the development server:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+yarn start
+```
 
-## Join the community
+4. For development builds (instead of Expo Go):
 
-Join our community of developers creating universal apps.
+```bash
+yarn android
+# or
+yarn ios
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Project Structure
+
+```
+aniseek-app/
+├── app/                    # Expo Router app directory
+│   ├── (tabs)/             # Tab navigation screens
+│   │   ├── _layout.tsx     # Tab navigation layout
+│   │   ├── explore.tsx     # Discover screen
+│   │   ├── search.tsx      # Search screen
+│   │   └── favorites.tsx   # Favorites screen
+│   ├── anime/              # Anime detail routes
+│   │   └── [id].tsx        # Dynamic anime detail page
+│   ├── +not-found.tsx      # 404 page
+│   ├── index.tsx           # Entry point redirecting to splash
+│   └── _layout.tsx         # Root layout with providers
+├── assets/                 # Static assets
+├── src/                    # Source code
+│   ├── api/                # API services
+│   │   └── jikanApi.ts     # Jikan API client
+│   ├── components/         # Reusable components
+│   │   ├── anime/          # Anime-specific components
+│   │   ├── ui/             # UI components
+│   │   └── AnimeCard.tsx   # Card component for anime items
+│   ├── constants/          # App constants
+│   │   └── Colors.ts       # Color definitions
+│   ├── hooks/              # Custom hooks
+│   │   ├── useAnimeData.ts # Data fetching hooks
+│   │   └── useFavorites.ts # Favorites management
+│   ├── screens/            # Screen components
+│   │   ├── AnimeDetail.tsx # Anime detail screen
+│   │   ├── AnimeList.tsx   # Main anime list screen
+│   │   ├── Favorites.tsx   # Favorites screen
+│   │   ├── SearchPage.tsx  # Search screen
+│   │   └── Splashscreen.tsx# Splash screen
+│   ├── store/              # State management
+│   │   ├── atoms.ts        # Jotai atoms
+│   │   └── mmkvStorage.ts  # MMKV storage utilities
+│   ├── types/              # TypeScript types
+│   │   └── anime.ts        # Anime data types
+│   └── utils/              # Utility functions
+├── __tests__/              # Test files
+├── android/                # Android-specific files
+├── ios/                    # iOS-specific files
+├── babel.config.js         # Babel configuration
+├── metro.config.js         # Metro bundler config
+├── tailwind.config.js      # Tailwind configuration
+├── postcss.config.js       # PostCSS configuration
+├── global.css              # Global CSS imports
+├── global.d.ts             # TypeScript declarations
+└── README.md               # Project documentation
+```
+
+## Features in Detail
+
+### Anime Discovery
+
+- Browse popular anime sorted by popularity
+- Infinite scroll for seamless browsing
+- Pull-to-refresh to get the latest content
+- Filter by genre with multi-select capability
+
+### Search
+
+- Search anime by title
+- Real-time results as you type
+- Debounced input to prevent excessive API calls
+
+### Filtering
+
+- Filter by multiple genres simultaneously
+- Search within genres
+- Toggle filters on/off easily
+- Clear all filters with one tap
+
+### Favorites
+
+- Add/remove anime from favorites with a single tap
+- Persistent storage using MMKV
+- View all favorites in a dedicated tab
+- Favorites work offline
+
+### Detail View
+
+- Comprehensive anime information
+- Synopsis, genres, studios, and more
+- Rating and aired dates
+- Tabbed interface for different content sections
+
+### UI Components
+
+- Custom PressableScale for interactive buttons
+- Bottom sheet modals for filters
+- Animated transitions between screens
+- TypeWriter effect on splash screen
+
+## Deep Linking
+
+The app supports deep linking to specific anime details:
+
+- `aniseek://anime/123` - Opens the details for anime with ID 123
+
+## Color Theme
+
+The app uses a custom color theme:
+
+- Primary: `#3c967b` (Teal)
+- Secondary: `#ffffff` (White)
+- Dark Background: `#121212`
+- Accent Colors: Various complementary colors for UI elements
+
+## Performance Optimizations
+
+- FlashList for efficient list rendering
+- Memoization of expensive calculations
+- Lazy loading of images
+- Debounced search input
+- Optimized re-renders with component separation
+
+## Thought and architecture decisions
+
+Decided to go with Expo because it cames with multi-platform support (android, ios, and web). But on this particular project i only enabled android.
+Because this project is heavily related to list, i decided to go with FlashList as it is more performant than traditional Flatlist.
+
+## Acknowledgements
+
+- [Jikan API](https://jikan.moe/) for providing anime data
+- [Expo](https://expo.dev/) for the development framework
+- [React Native](https://reactnative.dev/) for the core platform
+- [NativeWind](https://www.nativewind.dev/) for styling

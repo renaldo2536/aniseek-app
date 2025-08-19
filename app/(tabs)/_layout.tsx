@@ -1,43 +1,72 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import { Colors } from "@/constants/Colors";
+import PressableScale from "@/src/components/ui/PressableScale";
+import { MaterialIcons } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
+import React from "react";
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: "white",
+        tabBarInactiveTintColor: "white/50",
         headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
+        animation: "shift",
+        freezeOnBlur: false,
+        tabBarStyle: {
+          backgroundColor: Colors.light.primary,
+          height: 70,
+          paddingTop: 10,
+          borderTopWidth: 0.5,
+        },
+        tabBarIconStyle: {
+          color: "white",
+        },
+        tabBarButton: (props) => (
+          <PressableScale targetScale={0.9} {...props} android_ripple={null} />
+        ),
+      }}
+    >
       <Tabs.Screen
         name="explore"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          lazy: true,
+          title: "Explore",
+          tabBarIcon: ({ focused, color, size }) => (
+            <MaterialIcons
+              name="explore"
+              size={size}
+              color={focused ? "white" : color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="search"
+        options={{
+          lazy: true,
+          title: "Search",
+          tabBarIcon: ({ focused, color, size }) => (
+            <MaterialIcons
+              name="manage-search"
+              size={size}
+              color={focused ? "white" : color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="favorites"
+        options={{
+          lazy: true,
+          title: "Favorites",
+          tabBarIcon: ({ focused, color, size }) => (
+            <MaterialIcons
+              name="favorite"
+              size={size}
+              color={focused ? Colors.light.error : color}
+            />
+          ),
         }}
       />
     </Tabs>
