@@ -143,13 +143,6 @@ aniseek-app/
 - Rating and aired dates
 - Tabbed interface for different content sections
 
-## UI Components
-
-- Custom PressableScale for interactive buttons
-- Bottom sheet modals for filters
-- Animated transitions between screens
-- TypeWriter effect on splash screen
-
 ## Deep Linking
 
 The app supports deep linking to specific anime details:
