@@ -2,6 +2,7 @@ import { FlashList } from "@shopify/flash-list";
 import React from "react";
 import { ActivityIndicator, RefreshControl, Text, View } from "react-native";
 import { Anime } from "../../types/anime";
+import { getListContainerStyle } from "../../utils/layout";
 import AnimeCard from "../AnimeCard";
 import { ColumnItem } from "../ui/ColumnItem";
 import PressableScale from "../ui/PressableScale";
@@ -71,10 +72,7 @@ const AnimeListContent: React.FC<AnimeListContentProps> = ({
       keyExtractor={(item) => item.mal_id.toString()}
       numColumns={2}
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{
-        paddingVertical: 8,
-        paddingHorizontal: 12,
-      }}
+      contentContainerStyle={getListContainerStyle()}
       onEndReached={handleLoadMore}
       onEndReachedThreshold={0.5}
       drawDistance={500}

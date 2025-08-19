@@ -170,7 +170,7 @@ const GenreFilter: React.FC<GenreFilterProps> = ({
       <BottomModalSheet
         isVisible={isVisible}
         onClose={handleApplyFilters}
-        snapPoints={["50%"]}
+        snapPoints={["70%"]}
       >
         <View className="px-4 py-3 border-b border-gray-200">
           <View className="flex-row justify-between items-center mb-3">

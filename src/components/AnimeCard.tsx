@@ -24,7 +24,8 @@ const AnimeCard: React.FC<AnimeCardProps> = ({ anime, onPress }) => {
   return (
     <View>
       <Pressable
-        className="bg-primary rounded-lg overflow-hidden shadow-md m-2 w-[170px]"
+        className="bg-primary rounded-lg overflow-hidden shadow-md mx-1 my-2"
+        style={{ width: 170 }}
         onPress={() => onPress(anime)}
       >
         <View className="relative">

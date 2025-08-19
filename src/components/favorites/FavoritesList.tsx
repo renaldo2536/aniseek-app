@@ -1,6 +1,7 @@
 import { FlashList } from "@shopify/flash-list";
 import React from "react";
 import { Anime } from "../../types/anime";
+import { getListContainerStyle } from "../../utils/layout";
 import AnimeCard from "../AnimeCard";
 import { ColumnItem } from "../ui/ColumnItem";
 
@@ -24,7 +25,7 @@ const FavoritesList: React.FC<FavoritesListProps> = ({
       keyExtractor={(item) => item.mal_id.toString()}
       numColumns={2}
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{ paddingVertical: 8, paddingHorizontal: 14 }}
+      contentContainerStyle={getListContainerStyle()}
       drawDistance={500}
     />
   );
