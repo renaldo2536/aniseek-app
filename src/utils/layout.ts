@@ -15,7 +15,7 @@ export const calculateOptimalPadding = (): number => {
   const remainingSpace = width - totalCardsWidth;
 
   // Distribute remaining space as padding (minimum 8px)
-  return Math.max(8, remainingSpace / 2);
+  return Math.max(4, remainingSpace / 2);
 };
 
 // Get list container style for consistent layout

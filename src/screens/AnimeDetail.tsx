@@ -63,16 +63,18 @@ const AnimeDetailScreen: React.FC = () => {
 
   return (
     <View className="flex-1 bg-gray-900">
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: 40 }}
-      >
+      <View className="absolute top-0 left-0 right-0 z-50 pt-10 pb-2">
         <AnimeHeaderButtons
           isFavorite={isFavorite}
           onBackPress={handleBackPress}
           onFavoritePress={handleFavoritePress}
         />
+      </View>
 
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 40, paddingTop: 0 }}
+      >
         <AnimeHeader anime={anime} />
 
         <View className="px-4 pt-4">

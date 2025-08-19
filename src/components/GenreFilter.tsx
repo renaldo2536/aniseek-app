@@ -197,7 +197,7 @@ const GenreFilter: React.FC<GenreFilterProps> = ({
           />
         </View>
 
-        <View style={{ height: 400, width: "100%", padding: 16 }}>
+        <View style={{ width: "100%", padding: 16, height: 700 }}>
           <ScrollView
             style={{ flex: 1 }}
             contentContainerStyle={{
