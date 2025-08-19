@@ -143,7 +143,7 @@ aniseek-app/
 - Rating and aired dates
 - Tabbed interface for different content sections
 
-### UI Components
+## UI Components
 
 - Custom PressableScale for interactive buttons
 - Bottom sheet modals for filters
