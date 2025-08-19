@@ -49,7 +49,7 @@ yarn install
 yarn start
 ```
 
-4. For development builds (instead of Expo Go):
+4. For development builds
 
 ```bash
 yarn android
