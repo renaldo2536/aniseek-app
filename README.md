@@ -53,8 +53,6 @@ yarn start
 
 ```bash
 yarn android
-# or
-yarn ios
 ```
 
 ## Project Structure
