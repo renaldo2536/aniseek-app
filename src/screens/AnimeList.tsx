@@ -29,7 +29,16 @@ const AnimeListScreen: React.FC = () => {
 
   const animeList = React.useMemo(() => {
     if (!data) return [];
-    return data.pages.flatMap((page) => page.data);
+
+    // Remove duplicates data from APIs as it seems there is some duplicates data.
+    const allAnime = data.pages.flatMap((page) => page.data);
+    const uniqueAnimeMap = new Map<number, Anime>();
+
+    allAnime.forEach((anime) => {
+      uniqueAnimeMap.set(anime.mal_id, anime);
+    });
+
+    return Array.from(uniqueAnimeMap.values());
   }, [data]);
 
   const handleAnimePress = useCallback(
