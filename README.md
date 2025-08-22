@@ -141,12 +141,6 @@ aniseek-app/
 - Rating and aired dates
 - Tabbed interface for different content sections
 
-## Deep Linking
-
-The app supports deep linking to specific anime details:
-
-- `aniseek://anime/123` - Opens the details for anime with ID 123
-
 ## Color Theme
 
 The app uses a custom color theme:
